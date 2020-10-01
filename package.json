@@ -1,0 +1,25 @@
+{
+  "name": "@kienleholdings/printing-press",
+  "version": "0.1.0",
+  "description": "A Zephyr / Markdown Static Site Generator that uses Next.js",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "echo \"Todo: Write Tests\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kienleholdings/printing-press.git"
+  },
+  "keywords": [
+    "nextjs",
+    "zephyr",
+    "static",
+    "kienleholdings"
+  ],
+  "author": "Kienle Holdings LLC <hello@kienle.tech> (https://www.kienle.dev)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kienleholdings/printing-press/issues"
+  },
+  "homepage": "https://github.com/kienleholdings/printing-press#readme"
+}
