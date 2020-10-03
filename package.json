@@ -1,4 +1,7 @@
 {
+  "bin": {
+    "printing-press": "./lib/index.js"
+  },
   "name": "@kienleholdings/printing-press",
   "version": "0.1.0",
   "description": "A Zephyr / Markdown Static Site Generator that uses Next.js",
