@@ -1,0 +1,15 @@
+{
+  "exclude": ["node_modules"],
+  "extends": "@kienleholdings/base-tsconfig",
+  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "jsx": "react",
+    "lib": ["ESNext", "DOM"],
+    "outDir": "./lib",
+    "rootDir": "./src",
+    "sourceRoot": "./src",
+    "target": "ESNext",
+    "types": ["node"]
+  }
+}
