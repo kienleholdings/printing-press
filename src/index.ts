@@ -1,5 +1,5 @@
 import yargs from 'yargs';
-import { generateBuilder, generateHandler } from './generate';
+import { builder, generateHandler } from './generate';
 
 yargs
   .scriptName('printing-press')
@@ -7,8 +7,10 @@ yargs
   .command(
     'generate',
     'Generate a static site from markdown files in the current directory',
-    generateBuilder as any,
-    generateHandler
+    builder,
+    // I honestly have no idea what TS hates about this, it's stupid. TODO: Fix the explicit any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    generateHandler as any
   )
   .demandCommand(1, '')
   .help()
