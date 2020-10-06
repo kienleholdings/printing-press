@@ -128,7 +128,7 @@ export const generateHandler = async (params: Arguments<Params>): Promise<void> 
 
   // I'm not putting this into a try catch because since everything already succeeded I couldn't
   // care less if this fails
-  // await del([tempDir]);
+  await del([tempDir]);
 
   setTimeout(() => {
     // eslint-disable-next-line no-console
