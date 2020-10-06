@@ -1,16 +1,31 @@
 import { promises as fsPromises } from 'fs';
+import Head from 'next/head';
 import { GetStaticPaths, GetStaticPropsResult } from 'next';
 import { join, resolve } from 'path';
 import globby from 'globby';
+import grayMatter from 'gray-matter';
 import slash from 'slash';
 
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 
 interface Props {
-  page: string;
+  page: {
+    content: string;
+    data: {
+      title: string;
+    };
+  };
 }
 
-const App: React.FC<Props> = ({ page }) => <div>{JSON.stringify(page)}</div>;
+const App: React.FC<Props> = ({ page }) => (
+  <>
+    <Head>
+      <title>{page.data.title}</title>
+    </Head>
+    <ReactMarkdown source={page.content} />
+  </>
+);
 
 const getContentAndUrls = async () => {
   const contentPath = resolve('temp', 'content', '**', '*.md');
@@ -59,9 +74,16 @@ export const getStaticProps = async (
     }))
     .filter((currentPage) => currentPage.name === builtSlug)[0].value;
 
+  const { content, data } = grayMatter(page);
+
   return {
     props: {
-      page,
+      page: {
+        content,
+        data: {
+          title: data.title || 'Untitled Page',
+        },
+      },
     },
   };
 };
